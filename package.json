@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "1. create folders\r     app, config, controllers, middleware, routes,utils > server.js",
   "main": "server.js",
+  "engines": {
+    "node": ">=14.20.1"
+  },
   "type": "module",
   "scripts": {
     "server": "nodemon server.js",
