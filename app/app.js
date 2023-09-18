@@ -5,6 +5,7 @@ import express from 'express';
 import dbConnect from '../config/dbConnect.js';
 import {globalErrhandler, notFound} from '../middlewares/globalErrHandler.js'
 import Order from '../model/Order.js';
+import path from 'path'
 
 // dbConnect
 dbConnect();
@@ -76,6 +77,12 @@ app.post(
 //pass incoming data
 app.use(express.json());
 
+//url encoded
+app.use(express.urlencoded({extended: true}));
+
+//server static files
+app.use(express.static('public'));
+
 // routes
 import userRouter from '../routes/usersRoute.js';
 import productsRouter from '../routes/productsRoute.js';
@@ -85,6 +92,9 @@ import colorsRouter from '../routes/colorRoute.js';
 import reviewRouter from '../routes/reviewRoute.js';
 import orderRouter from '../routes/orderRoute.js';
 import couponRouter from '../routes/couponRoute.js';
+app.get('/', (req, res) => {
+  res.sendFile(path.join('public', 'index.html'))
+})
 app.use('/api/v1/users/', userRouter)
 app.use('/api/v1/products/', productsRouter)
 app.use('/api/v1/categories/', categoriesRouter)
