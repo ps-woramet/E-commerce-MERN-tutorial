@@ -3064,3 +3064,7 @@ profile จะทำการนำ req เพื่อตรวจสอบ tok
         userRouter.post('/login', loginUserCtrl)
         userRouter.get('/profile', isLoggedIn, getUserProfileCtrl)
         userRouter.put('/update/shipping', isLoggedIn, updateShippingAddressCtrl)
+
+45. cors error Fixed
+
+    npm i cors

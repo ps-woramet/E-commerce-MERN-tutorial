@@ -6,10 +6,14 @@ import dbConnect from '../config/dbConnect.js';
 import {globalErrhandler, notFound} from '../middlewares/globalErrHandler.js'
 import Order from '../model/Order.js';
 import path from 'path'
+import cors from 'cors'
 
 // dbConnect
 dbConnect();
 const app = express();
+
+//cors
+app.use(cors());
 
 //Stripe webhook
 //stripe instance
