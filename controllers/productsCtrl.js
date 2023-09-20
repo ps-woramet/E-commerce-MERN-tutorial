@@ -7,7 +7,7 @@ import Brand from '../model/Brand.js';
 // @route POST /api/v1/products
 // @access Private/Admin
 export const createProductCtrl = asyncHandler(async (req, res) => {
-
+    console.log(req.files)
     const convertedImgs = req.files.map((file) => file?.path);
 
     const {name, description, brand, category, sizes, colors, price, totalQty}= req.body;

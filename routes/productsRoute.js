@@ -5,7 +5,7 @@ import upload from "../config/fileUpload.js";
 import isAdmin from "../middlewares/isAdmin.js";
 const productsRouter = express.Router()
 
-productsRouter.post('/', isLoggedIn, isAdmin, upload.any('files'), createProductCtrl)
+productsRouter.post('/', isLoggedIn, isAdmin, upload.array('files'), createProductCtrl)
 productsRouter.get('/', getProductsCtrl)
 productsRouter.get('/:id', getProductCtrl)
 productsRouter.put('/:id', isLoggedIn, isAdmin, updateProductCtrl)
