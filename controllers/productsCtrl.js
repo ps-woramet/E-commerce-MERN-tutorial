@@ -8,7 +8,7 @@ import Brand from '../model/Brand.js';
 // @access Private/Admin
 export const createProductCtrl = asyncHandler(async (req, res) => {
 
-    const convertedImgs = req.files.map((file) => file.path);
+    const convertedImgs = req.files.map((file) => file?.path);
 
     const {name, description, brand, category, sizes, colors, price, totalQty}= req.body;
     //Priduct exists
