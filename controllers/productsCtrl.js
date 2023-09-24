@@ -93,7 +93,7 @@ export const getProductsCtrl = asyncHandler(async(req, res) => {
     //search by color
     if(req.query.color){
         productQuery = productQuery.find({
-            color: {$regex: req.query.color, $options: 'i'},
+            colors: {$regex: req.query.color, $options: 'i'},
         });
     }
 
