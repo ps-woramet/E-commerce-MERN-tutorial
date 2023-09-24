@@ -100,7 +100,7 @@ export const getProductsCtrl = asyncHandler(async(req, res) => {
     //search by size
     if(req.query.size){
         productQuery = productQuery.find({
-            size: {$regex: req.query.size, $options: 'i'},
+            sizes: {$regex: req.query.size, $options: 'i'},
         });
     }
 
