@@ -15,9 +15,9 @@ const ProductSchema = new Schema({
         type: String,
         require: true,
     },
-    catagory: {
+    category: {
         type: String,
-        ref: "Catagory",
+        ref: "Category",
         requirede: true,
     },
     sizes: {
