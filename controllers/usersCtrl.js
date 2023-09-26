@@ -81,6 +81,7 @@ export const updateShippingAddressCtrl = asyncHandler(async (req, res) => {
             postalCode,
             province,
             phone,
+            country,
         },
         hasShippingAddress: true,
     },{

@@ -35,10 +35,10 @@ const UserSchema = new Schema({
         default: false,
     },
     shippingAddress: {
-        firstname: {
+        firstName: {
             type: String,
         },
-        lastname: {
+        lastName: {
             type: String,
         },
         address: {
