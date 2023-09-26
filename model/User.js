@@ -53,9 +53,6 @@ const UserSchema = new Schema({
         province: {
             type: String,
         },
-        province: {
-            type: String,
-        },
         country: {
             type: String,
         },

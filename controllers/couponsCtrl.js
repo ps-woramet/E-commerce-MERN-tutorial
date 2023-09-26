@@ -54,7 +54,17 @@ export const getAllCouponsCtrl = asyncHandler(async (req, res) => {
 // @route GET /api/v1/coupons/:id
 // @access Public
 export const getCoupontCtrl = asyncHandler(async(req, res) => {
-    const coupon = await Coupon.findById(req.params.id);
+    // const coupon = await Coupon.findById(req.params.id);
+    const coupon = await Coupon.findOne({code: req.query.code});
+    console.log(coupon);
+    //check if is not found
+    if(coupon === null){
+        throw new Error('Coupon not found');
+    }
+    if(coupon.isExprired){
+        throw new Error('Coupon not found')
+    }
+
     res.json({
         status: 'success',
         message: 'Coupon fetched',
