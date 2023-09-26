@@ -80,8 +80,8 @@ export const updateShippingAddressCtrl = asyncHandler(async (req, res) => {
             city,
             postalCode,
             province,
-            phone,
             country,
+            phone,
         },
         hasShippingAddress: true,
     },{
