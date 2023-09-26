@@ -71,7 +71,7 @@ export const getUserProfileCtrl = asyncHandler(async(req, res) => {
 //@route PUT /api/v1/users/update/shippng
 //@access Private
 export const updateShippingAddressCtrl = asyncHandler(async (req, res) => {
-    const {firstName, lastName, address, city, postalCode, province, phone} = req.body;
+    const {firstName, lastName, address, city, postalCode, province, country, phone} = req.body;
     const user = await User.findByIdAndUpdate(req.userAuthId, {
         shippingAddress: {
             firstName,
