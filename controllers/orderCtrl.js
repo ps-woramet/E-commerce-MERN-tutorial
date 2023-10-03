@@ -44,6 +44,10 @@ export const createOrderCtrl = asyncHandler(async (req, res) => {
     //Check if order is not empty
     if(orderItems?.length <= 0){
         throw new Error('No Order Items');
+    }else{
+        if(orderItems?.qty){
+            parseInt(orderItems?.qty)
+        }
     }
     //Place/create order --save into DB
     const order = await Order.create({
