@@ -44,11 +44,13 @@ export const createOrderCtrl = asyncHandler(async (req, res) => {
     //Check if order is not empty
     if(orderItems?.length <= 0){
         throw new Error('No Order Items');
-    }else{
-        if(orderItems?.qty){
-            parseInt(orderItems?.qty)
-        }
     }
+    console.log('this is order item');
+    orderItems.forEach(item => {
+        item.qty = parseFloat(item.qty);
+    });
+    console.log(orderItems);
+    
     //Place/create order --save into DB
     const order = await Order.create({
         user: user?._id,
@@ -57,7 +59,7 @@ export const createOrderCtrl = asyncHandler(async (req, res) => {
         // totalPrice: couponFound ? totalPrice - totalPrice * discount : totalPrice,
         totalPrice,
     });
-    console.log(order);
+    // console.log(order);
 
     //Update the product qty
     const products = await Product.find({_id: {$in: orderItems }})
