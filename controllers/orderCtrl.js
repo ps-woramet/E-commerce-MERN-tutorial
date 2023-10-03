@@ -14,19 +14,19 @@ const stripe = new Stripe(process.env.STRIPE_KEY);
 //@route POST /api/v1/orders
 //@access private/admin
 export const createOrderCtrl = asyncHandler(async (req, res) => {
-    //Get the coupon
-    const {coupon} = req?.query;
+    // Get the coupon
+    // const {coupon} = req?.query;
     
-    const couponFound = await Coupon.findOne({
-        code: coupon?.toUpperCase(),
-    });
+    // const couponFound = await Coupon.findOne({
+    //     code: coupon?.toUpperCase(),
+    // });
 
-    if (couponFound?.isExpired){
-        throw new Error('Coupon has expired');
-    }
-    if (!couponFound){
-        throw new Error('Coupon does exists');
-    }
+    // if (couponFound?.isExpired){
+    //     throw new Error('Coupon has expired');
+    // }
+    // if (!couponFound){
+    //     throw new Error('Coupon does exists');
+    // }
 
     //Get discount
     // const discount = couponFound?.discount / 100;
