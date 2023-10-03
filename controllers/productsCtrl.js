@@ -160,7 +160,13 @@ export const getProductsCtrl = asyncHandler(async(req, res) => {
 // @route GET /api/v1/products/:id
 // @access Public
 export const getProductCtrl = asyncHandler(async (req, res) => {
-    const product = await Product.findById(req.params.id).populate('reviews');
+    const product = await Product.findById(req.params.id).populate({
+        path: 'reviews',
+        populate: {
+            path: 'user',
+            select: 'fullname',
+        }
+    });
     if(!product){
         throw new Error('Product not found');
     }
@@ -186,6 +192,8 @@ export const updateProductCtrl = asyncHandler(async (req, res) => {
         price,
         totalQty,
     } = req.body;
+
+    //update
     const product = await Product.findByIdAndUpdate(req.params.id, {
         name,
         description,
@@ -198,6 +206,7 @@ export const updateProductCtrl = asyncHandler(async (req, res) => {
         totalQty,
     },{
         new: true,
+        runValidators: true,
     })
     res.json({
         status: 'success',
